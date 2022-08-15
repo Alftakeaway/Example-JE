@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://getbootstrap.com/docs/5.2/assets/css/docs.css"
+      rel="stylesheet"
+    />
+    <title>Homepage with Carousel</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body class="p-3 m-0 border-0 ">
+    <style>
+
+          .carousel .carousel-control-prev,
+      .carousel .carousel-control-next {
+        width: 20px;
+        height: 20px;
+        background-color: none;
+        top: calc(-20% -25%);
+        opacity: .8;
+      }
+
+      .carousel .carousel-control-prev {
+        left: unset;
+        right: 30px;
+      }
+
+      }
+      .bd-aside a {
+  padding: .1875rem .5rem;
+  margin-top: .125rem;
+  margin-left: .3125rem;
+  color: rgba(0, 0, 0, .65);
+}
+
+.bd-aside a:hover,
+.bd-aside a:focus {
+  color: rgba(0, 0, 0, .85);
+  background-color: rgba(121, 82, 179, .1);
+}
+
+.bd-aside .active {
+  font-weight: 600;
+  color: rgba(0, 0, 0, .85);
+}
+
+.bd-aside .btn {
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, .65);
+}
+
+.bd-aside .btn:hover,
+.bd-aside .btn:focus {
+  color: rgba(0, 0, 0, .85);
+  background-color: rgba(121, 82, 179, .1);
+}
+
+.bd-aside .btn:focus {
+  box-shadow: 0 0 0 1px rgba(121, 82, 179, .7);
+}
+
+.bd-aside .btn::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform .35s ease;
+
+  /* rtl:raw:
+  transform: rotate(180deg) translateX(-2px);
+  */
+  transform-origin: .5em 50%;
+}
+
+.bd-aside .btn[aria-expanded="true"]::before {
+  transform: rotate(90deg)/* rtl:ignore */;
+}
+
+    </style>
+    <header class="bd-header bg-secondary py-3 d-flex align-items-stretch border-bottom border-secondary">
+    <div class="container-fluid d-flex align-items-center">
+      <h1 class="d-flex align-items-center fs-4 text-white mb-0">
+        <img src="https://upload.wikimedia.org/wikipedia/en/f/f3/DC_Comics_logo_2005%E2%80%932012.svg" width="38" height="30" class="me-3" alt="CompanyName">
+        My Company
+      </h1>
+      </div>
+  </header>
+    <aside class="bd-aside sticky-xl-top text-muted align-self-start mb-3 mb-xl-5 px-2">
+    <nav class="small" id="toc">
+      <ul class="list-unstyled">
+        <li class="my-2">
+          <button class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Contents</button>
+          <ul class="list-unstyled ps-3 collapse" id="contents-collapse">
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#carousel-cards">Carousel</a></li>
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#images">Images</a></li>
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#tables">Tables</a></li>
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#figures">Figures</a></li>
+          </ul>
+        </li>
+        <li class="my-2">
+          <button class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#forms-collapse" aria-controls="forms-collapse">Forms</button>
+          <ul class="list-unstyled ps-3 collapse" id="forms-collapse">
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#overview">Overview</a></li>
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#disabled-forms">Disabled forms</a></li>
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#sizing">Sizing</a></li>
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#input-group">Input group</a></li>
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#floating-labels">Floating labels</a></li>
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#validation">Validation</a></li>
+          </ul>
+        </li>
+        <li class="my-2">
+          <button class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#components-collapse" aria-controls="components-collapse">Components</button>
+          <ul class="list-unstyled ps-3 collapse" id="components-collapse">
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#accordion">Accordion</a></li>
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#alerts">Alerts</a></li>
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#badge">Badge</a></li>
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#breadcrumb">Breadcrumb</a></li>
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#buttons">Buttons</a></li>
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#button-group">Button group</a></li>
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#card">Card</a></li>
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#carousel">Carousel</a></li>
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#dropdowns">Dropdowns</a></li>
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#list-group">List group</a></li>
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#modal">Modal</a></li>
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#navs">Navs</a></li>
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#navbar">Navbar</a></li>
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#pagination">Pagination</a></li>
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#popovers">Popovers</a></li>
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#progress">Progress</a></li>
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#scrollspy">Scrollspy</a></li>
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#spinners">Spinners</a></li>
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#toasts">Toasts</a></li>
+            <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#tooltips">Tooltips</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+     <div class="container col-xxl-8 px-4 py-5">
+     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+       <div class="col-10 col-sm-8 col-lg-6">
+         <img src="https://getbootstrap.com/docs/5.2/examples/heroes/bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+       </div>
+       <div class="col-lg-6">
+         <h1 class="display-5 fw-bold lh-1 mb-3">Please read the disclaimer before bending time and space</h1>
+         <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+           <button type="button" class="btn btn-warning btn-lg px-4 me-md-2">Watch here</button>
+           <button type="button" class="btn btn-outline-secondary btn-lg px-4">Old posts</button>
+         </div>
+       </div>
+       <div
+       id="carousel-cards"
+       class="carousel slide pointer-event carousel-dark"
+       data-bs-ride="carousel"
+     >
+       <div class="carousel-inner">
+         <div class="carousel-item active" data-bs-interval="10000">
+           <div class="row row-cols-1 row-cols-md-3 g-4">
+             <div class="col">
+               <div class="card h-100">
+                 <img
+                   src="https://images.pexels.com/photos/262333/pexels-photo-262333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                   class="card-img-top"
+                   alt="..."
+                 />
+                 <div class="card-body">
+                   <h5 class="card-title">Card title 1</h5>
+                   <p class="card-text">
+                     This is a wider card with supporting text below as a natural
+                     lead-in to additional content.
+                   </p>
+                   <a href="#" class="btn btn-primary">Go somewhere</a>
+                 </div>
+               </div>
+             </div>
+             <div class="col">
+               <div class="card h-100">
+                 <img
+                   src="https://images.pexels.com/photos/262333/pexels-photo-262333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                   class="card-img-top"
+                   alt="..."
+                 />
+                 <div class="card-body">
+                   <h5 class="card-title">Card title 2</h5>
+                   <p class="card-text">
+                     This card has supporting text below as a natural lead-in to
+                     additional content.
+                   </p>
+                   <a href="#" class="btn btn-primary">Go somewhere</a>
+                 </div>
+               </div>
+             </div>
+             <div class="col">
+               <div class="card h-100">
+                 <img
+                   src="https://images.pexels.com/photos/262333/pexels-photo-262333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                   class="card-img-top"
+                   alt="..."
+                 />
+                 <div class="card-body">
+                   <h5 class="card-title">Card title 3</h5>
+                   <p class="card-text">
+                     This is a wider card with supporting text below as a natural
+                     lead-in to additional content.
+                   </p>
+                   <a href="#" class="btn btn-primary">Go somewhere</a>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+         <div class="carousel-item" data-bs-interval="2000">
+           <div class="row row-cols-1 row-cols-md-3 g-4">
+             <div class="col">
+               <div class="card h-100">
+                 <img
+                   src="https://images.pexels.com/photos/262333/pexels-photo-262333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                   class="card-img-top"
+                   alt="..."
+                 />
+                 <div class="card-body">
+                   <h5 class="card-title">Card title 4</h5>
+                   <p class="card-text">
+                     This is a wider card with supporting text below as a natural
+                     lead-in to additional content.
+                   </p>
+                   <a href="#" class="btn btn-primary">Go somewhere</a>
+                 </div>
+               </div>
+             </div>
+             <div class="col">
+               <div class="card h-100">
+                 <img
+                   src="https://images.pexels.com/photos/262333/pexels-photo-262333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                   class="card-img-top"
+                   alt="..."
+                 />
+                 <div class="card-body">
+                   <h5 class="card-title">Card title 5</h5>
+                   <p class="card-text">
+                     This card has supporting text below as a natural lead-in to
+                     additional content.
+                   </p>
+                   <a href="#" class="btn btn-primary">Go somewhere</a>
+                 </div>
+               </div>
+             </div>
+             <div class="col">
+               <div class="card h-100">
+                 <img
+                   src="https://images.pexels.com/photos/262333/pexels-photo-262333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                   class="card-img-top"
+                   alt="..."
+                 />
+                 <div class="card-body">
+                   <h5 class="card-title">Card title 6</h5>
+                   <p class="card-text">
+                     This is a wider card with supporting text below as a natural
+                     lead-in to additional content.
+                   </p>
+                   <a href="#" class="btn btn-primary">Go somewhere</a>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+         <div class="carousel-item" data-bs-interval="2000">
+           <div class="row row-cols-1 row-cols-md-3 g-4">
+             <div class="col">
+               <div class="card h-100">
+                 <img
+                   src="https://images.pexels.com/photos/262333/pexels-photo-262333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                   class="card-img-top"
+                   alt="..."
+                 />
+                 <div class="card-body">
+                   <h5 class="card-title">Card title 7</h5>
+                   <p class="card-text">
+                     This is a wider card with supporting text below as a natural
+                     lead-in to additional content.
+                   </p>
+                   <a href="#" class="btn btn-primary">Go somewhere</a>
+                 </div>
+               </div>
+             </div>
+             <div class="col">
+               <div class="card h-100">
+                 <img
+                   src="https://images.pexels.com/photos/262333/pexels-photo-262333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                   class="card-img-top"
+                   alt="..."
+                 />
+                 <div class="card-body">
+                   <h5 class="card-title">Card title 8</h5>
+                   <p class="card-text">
+                     This card has supporting text below as a natural lead-in to
+                     additional content.
+                   </p>
+                   <a href="#" class="btn btn-primary">Go somewhere</a>
+                 </div>
+               </div>
+             </div>
+             <div class="col">
+               <div class="card h-100">
+                 <img
+                   src="https://images.pexels.com/photos/262333/pexels-photo-262333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                   class="card-img-top"
+                   alt="..."
+                 />
+                 <div class="card-body">
+                   <h5 class="card-title">Card title 9</h5>
+                   <p class="card-text">
+                     This is a wider card with supporting text below as a natural
+                     lead-in to additional content.
+                   </p>
+                   <a href="#" class="btn btn-primary">Go somewhere</a>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+       <button
+         class="carousel-control-prev"
+         type="button"
+         data-bs-target="#carousel-cards"
+         data-bs-slide="prev"
+       >
+         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+         <span class="visually-hidden">Previous</span>
+       </button>
+       <button
+         class="carousel-control-next"
+         type="button"
+         data-bs-target="#carousel-cards"
+         data-bs-slide="next"
+       >
+         <span class="carousel-control-next-icon" aria-hidden="true"></span>
+         <span class="visually-hidden">Next</span>
+       </button>
+     </div>
+     </div>
+   </div>
+
+   
+    
+    <script>
+      const carousel = new bootstrap.Carousel('#carousel-cards');
+
+      (() => {
+  'use strict'
+
+  // Tooltip and popover demos
+  document.querySelectorAll('.tooltip-demo')
+    .forEach(tooltip => {
+      new bootstrap.Tooltip(tooltip, {
+        selector: '[data-bs-toggle="tooltip"]'
+      })
+    })
+
+  document.querySelectorAll('[data-bs-toggle="popover"]')
+    .forEach(popover => {
+      new bootstrap.Popover(popover)
+    })
+
+  document.querySelectorAll('.toast')
+    .forEach(toastNode => {
+      const toast = new bootstrap.Toast(toastNode, {
+        autohide: false
+      })
+
+      toast.show()
+    })
+
+  // Disable empty links and submit buttons
+  document.querySelectorAll('[href="#"], [type="submit"]')
+    .forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault()
+      })
+    })
+
+  function setActiveItem() {
+    const { hash } = window.location
+
+    if (hash === '') {
+      return
+    }
+
+    const link = document.querySelector(`.bd-aside a[href="${hash}"]`)
+
+    if (!link) {
+      return
+    }
+
+    const active = document.querySelector('.bd-aside .active')
+    const parent = link.parentNode.parentNode.previousElementSibling
+
+    link.classList.add('active')
+
+    if (parent.classList.contains('collapsed')) {
+      parent.click()
+    }
+
+    if (!active) {
+      return
+    }
+
+    const expanded = active.parentNode.parentNode.previousElementSibling
+
+    active.classList.remove('active')
+
+    if (expanded && parent !== expanded) {
+      expanded.click()
+    }
+  }
+
+  setActiveItem()
+  window.addEventListener('hashchange', setActiveItem)
+})()
+
+    </script>
+  </body>
+</html>
